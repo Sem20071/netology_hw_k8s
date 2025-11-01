@@ -25,11 +25,11 @@
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 ```
 2. Настройка подключения к кластеру призводится редактированием файла ~/.kube/config
-   ![Скриншот экрана 1]()
+   ![Скриншот экрана 1](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.1_03.25/images/kuber-homeworks_1.1-01.png)
 3. Перед подключением к dashboard необходимо:
    - Создать service account для dashboard командой - `microk8s kubectl create serviceaccount dashboard-admin -n kube-system`
    - Привязать cluster-admin роль:
-   ```
+```
 microk8s kubectl create clusterrolebinding dashboard-admin --clusterrole=cluster-admin --serviceaccount=kube-system:dashboard-admin
 ```
   - Получить токен для авторизации:
@@ -37,8 +37,11 @@ microk8s kubectl create clusterrolebinding dashboard-admin --clusterrole=cluster
 microk8s kubectl describe secret -n kube-system $(microk8s kubectl get secret -n kube-system | grep dashboard-admin | awk '{print $1}')
 ```
   - Запустить проброс порта для подключения :
+
 ```
 microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443 --address 0.0.0.0
 ```
-  - Пробуем зайти на страницу https://127.0.0.1:10443
-![Скриншот экрана 2]()
+  - Пробуем зайти на страницу `https://127.0.0.1:10443`
+
+![Скриншот экрана 2](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.1_03.25/images/kuber-homeworks_1.1-02.png)
+
