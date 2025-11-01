@@ -45,3 +45,4 @@ microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:
 
 ![Скриншот экрана 2](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.1_03.25/images/kuber-homeworks_1.1-02.png)
 
+Эталон ! https://github.com/netology-code/kuber-homeworks_1.1_reference_03.25
