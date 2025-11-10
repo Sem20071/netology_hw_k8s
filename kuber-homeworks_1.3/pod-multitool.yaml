@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multitool-app
+  labels:
+    app: nginx
+spec:
+  containers:
+    - name: multitool-app
+      image: wbitt/network-multitool
+      command: ["/bin/sh"]
+      args: ["-c", "sleep infinity"]
