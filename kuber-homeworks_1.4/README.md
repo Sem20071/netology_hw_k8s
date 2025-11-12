@@ -25,14 +25,21 @@
 или через браузер.
 
 ### Что сдать на проверку
-- Манифесты:
--- deployment-multi-container.yaml
--- service-clusterip.yaml
--- service-nodeport.yaml
--Скриншоты проверки доступа (curl или браузер).
+1. Манифесты:
+- deployment-multi-container.yaml
+- service-clusterip.yaml
+- service-nodeport.yaml
+2. Скриншоты проверки доступа (curl или браузер).
 
 ## Ответ:
-
+1. [Файл-Манифест](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.4/deployment-multi-container.yaml) и Deployment, с двумя контейнерами, созданы:
+   ![Скриншот консоли 1](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.4/images/kuber-homeworks_1.4-1-1.png)
+2. [Файл-Манифест](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.4/service-clusterip.yaml) и Service тип ClusterIP созданы:
+    ![Скриншот консоли 2](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.4/images/kuber-homeworks_1.4-1-2.png)
+3. Результат выполенния команды curl из тестового PodА:
+    ![Скриншот консоли 3](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.4/images/kuber-homeworks_1.4-1-3.png)
+4-5. [Файл-Манифест](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.4/service-nodeport.yaml) и Service ,типа NodePort для доступа к nginx, созданы.    Nginx доступен снаружи:
+    ![Скриншот консоли 4](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.4/images/kuber-homeworks_1.4-1-45.png)
 
 
 ## Задание 2: Настройка Ingress
@@ -57,13 +64,23 @@
 или через браузер.
 
 ### Что сдать на проверку
-- Манифесты:
--- deployment-frontend.yaml
--- deployment-backend.yaml
--- service-frontend.yaml
--- service-backend.yaml
--- ingress.yaml
-- Скриншоты проверки доступа (curl или браузер).
+1. Манифесты:
+- deployment-frontend.yaml
+- deployment-backend.yaml
+- service-frontend.yaml
+- service-backend.yaml
+- ingress.yaml
+2. Скриншоты проверки доступа (curl или браузер).
 
 
-Ответ:
+## Ответ:
+1. [Файлы-Манифест-deployment-frontend](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.4/deployment-backend.yaml) ,[Файлы-Манифест-deployment-backend](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.4/deployment-frontend.yaml) и два Deployment, созданы:
+   ![Скриншот консоли 5](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.4/images/kuber-homeworks_1.4-2-1.png)
+2. [Файлы-Манифест-service-frontend](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.4/service-frontend.yaml) ,[Файлы-Манифест2-service-backend](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.4/service-backend.yaml) и два Service, созданы:
+   ![Скриншот консоли 6](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.4/images/kuber-homeworks_1.4-2-2.png)
+3. Ingress-контроллер включен.
+   ![Скриншот консоли 7](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.4/images/kuber-homeworks_1.4-2-3.png)
+4. [Файл-Манифест](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.4/ingress.yaml) и Ingress созданы:
+   ![Скриншот консоли 8](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.4/images/kuber-homeworks_1.4-2-4.png)
+5. Оба сервиса доступны снаружи:
+   ![Скриншот консоли 9](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_1.4/images/kuber-homeworks_1.4-2-4-51.png)
