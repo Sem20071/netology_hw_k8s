@@ -21,8 +21,6 @@ spec:
         - containerPort: 80
       - name: multitool
         image: wbitt/network-multitool
-        command: ["/bin/sh"]
-        args: ["-c", "sleep infinity"]
         ports:
         - containerPort: 8080
         env:

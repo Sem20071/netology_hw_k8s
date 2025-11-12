@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment-backend
+  name: backend
   labels:
-    app: deployment-backend
+    app: backend
 spec:
   replicas: 2
   selector: 
@@ -17,8 +17,6 @@ spec:
       containers:
       - name: multitool
         image: wbitt/network-multitool
-        command: ["/bin/sh"]
-        args: ["-c", "sleep infinity"]
         ports:
         - containerPort: 8080
         env:
