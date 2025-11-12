@@ -8,17 +8,17 @@ spec:
   rules:
   - http:
       paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: my-service-frontend
-            port:
-              number: 9001
       - path: /api
         pathType: Prefix
         backend:
           service:
-            name: my-service-backend
+            name: service-backend
             port:
               number: 9002
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: service-frontend
+            port:
+              number: 9001

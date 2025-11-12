@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service-frontend
+  name: service-frontend
 spec:
   selector:
-    app: myapp
+    app: frontend
   ports:
-    - name: frontend
+    - name: nginx
       protocol: TCP
       port: 9001
       targetPort: 80
