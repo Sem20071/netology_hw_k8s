@@ -15,7 +15,13 @@
 - вывод команды чтения файла (tail -f <имя общего файла>)
 
 ## Ответ:
-
+1. [Файл-Манифест](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.1/containers-data-exchange.yaml) и Deployment приложения созданы.
+2. busybox настроен на запись данных каждые 5 секунд в файл test-file.txt.
+3. Возможность чтения файла контейнером multitool обеспечена:
+    ![Скриншот консоли 2](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.1/images/kuber-homeworks2.1-1-2.png)
+4. Описание пода с контейнерами (kubectl describe pods data-exchange)
+    ![Скриншот консоли 3](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.1/images/kuber-homeworks2.1-1-1.png)
+    ![Скриншот консоли 3](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.1/images/kuber-homeworks2.1-1-12.png)
 
 ## Задание 2. PV, PVC
 ### Задача
@@ -37,13 +43,13 @@
 - объяснение наблюдаемого поведения ресурсов в двух последних шагах.
 
 ## Ответ:
-
+1-4. [Файл-Манифест pv-pvc.yaml](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.1/pv-pvc.yaml) для создания  Deployment, PV и PVC для подключения папки на локальной ноде, которая будет использована в поде, созданы.
+    ![Скриншот консоли 4](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.1/images/kuber-homeworks2.1-2-234.png)
 5. PV остался не тронут. Удаляя Deployment и PVC мы перевели PV в статус "Released". При необходимости pvc и Deploymen можно пересоздать и продолжить работу с PV. Файл в PV остался на месте.
+    ![Скриншот консоли после удаления PVC и Deployment3](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.1/images/kuber-homeworks2.1-2-51.png)
 
-Скриншот консоли 51 после удаления PVC и Deployment
-
-После удаления PV файл на файловой системе ноды остался не тронут.
-Скриншот консоли 52 после удаления PV 
+После удаления PV файл на файловой системе ноды остался не тронут т.к. в параметрах PV мы использовали параемтр persistentVolumeReclaimPolicy: Retain. Данный параметр говорит о том что файлы остаются на локальном диске ноды после удаления PV и администратор должен вручную очистить данные при необходимости.
+    ![Скриншот консоли после удаления PV](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.1/images/kuber-homeworks2.1-2-52.png)
 
 
 ## Задание 3. StorageClass
