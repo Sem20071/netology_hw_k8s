@@ -1,0 +1,67 @@
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: sc-volume
+provisioner: "rancher.io/local-path"
+volumeBindingMode: WaitForFirstConsumer
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-volume
+spec:
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: "sc-volume" 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-exchange
+  labels:
+    app: data-exchange
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: data-exchange
+  template:
+    metadata:
+      labels:
+        app: data-exchange
+    spec:
+      volumes:
+      - name: myapp-volume
+        persistentVolumeClaim:
+          claimName: pvc-volume
+      containers:
+      - name: busybox
+        image: busybox
+        command:
+          - /bin/sh
+          - -c
+          - |
+            echo "Starting busybox writer..."
+            mkdir -p /output
+            while true; do
+              echo "$(date): text test text test" >> /output/test-file.txt
+              sleep 5
+            done
+        volumeMounts:
+        - name: myapp-volume
+          mountPath: /output
+      - name: multitool
+        image: wbitt/network-multitool
+        command:
+          - /bin/sh
+          - -c
+          - |
+            tail -f /input/test-file.txt
+        volumeMounts:
+        - name: myapp-volume
+          mountPath: /input
