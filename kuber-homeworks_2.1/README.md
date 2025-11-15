@@ -70,7 +70,7 @@
 
 
 ## Ответ:
-1. [Файл-Манифест sc.yaml](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.1/pv-pvc.yaml) для создания  Deployment, sc и pvc создан.
+1. [Файл-Манифест sc.yaml](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.1/sc.yaml) для создания  Deployment, sc и pvc создан.
 2. Командой `kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.24/deploy/local-path-storage.yaml` включил Local Path Provisioner - динамического provisioner'а для Kubernetes, который создает Persistent Volumes используя локальные диски на нодах.
 3. Скриншоты консоли:
     ![Скриншот консоли 5](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.1/images/kuber-homeworks2.1-3-1.png)
