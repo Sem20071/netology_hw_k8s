@@ -16,9 +16,10 @@
 2. Скриншот вывода curl или браузера
 
 ## Ответ:
-1. Файлы-Манифест [deployment.yaml]() и [configmap-web.yaml]() созданы и применены.
+1. Файлы-Манифест [deployment.yaml](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.3/deployment.yaml) и [configmap-web.yaml](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.3/configmap-web.yaml) созданы и применены.
+    ![Скриншот консоли 0](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.3/images/kuber-homeworks_2.3-1-12.png)
 2. Скриншот вывода curl
-    ![Скриншот консоли 1]()
+    ![Скриншот консоли 1](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.3/images/kuber-homeworks_2.3-1-3.png)
 
 
 ## Задание 2: Настройка HTTPS с Secrets
@@ -43,13 +44,13 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 
 ## Ответ:
 1. Самоподписной tls сертификат сгенерирован:
-    ![Скриншот консоли 2]()
-    
-2. Файлы-Манифест [secret-tls.yaml]() и [ingress-tls.yaml]() созданы и применены.
-    ![Скриншот консоли 3]()
+    ![Скриншот консоли 2](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.3/images/kuber-homeworks_2.3-2-1.png)
+
+2. Файлы-Манифест [secret-tls.yaml](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.3/secret-tls.yaml) и [ingress-tls.yaml](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.3/ingress-tls.yaml) созданы и применены.
+    ![Скриншот консоли 3](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.3/images/kuber-homeworks_2.3-2-23.png)
 
 3. Скриншот вывода curl -k
-    ![Скриншот консоли 4]()
+    ![Скриншот консоли 4](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.3/images/kuber-homeworks_2.3-2-4.png)
 
 ## Задание 3: Настройка RBAC
 ### Задача
@@ -78,13 +79,15 @@ openssl x509 -req -in developer.csr -CA {CA серт вашего кластер
 ### Ответ:
 
 1. RBAC в microk8s включен.
-    ![Скриншот консоли 5]()
+    ![Скриншот консоли 5](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.3/images/kuber-homeworks_2.3-3-1.png)
 
 2. Команды генерации сертификатов
 - создаём закрытую часть сертификата `openssl genrsa -out netology.key 2048`
 - создаём csr запрос на выпуск сертификата `openssl req -new -key developer.key -out developer.csr -subj "/CN=netology"`
 - выпускаем новый самоподписной сертификат на основе запроса `openssl x509 -req -in developer.csr -CA /var/snap/microk8s/current/certs/ca.crt -CAkey /var/snap/microk8s/current/certs/ca.key -CAcreateserial -out netology.crt -days 365`
-    ![Скриншот консоли 6]()
 
-3. Скриншот проверки прав (`kubectl get pods --as=developer`)
-    ![Скриншот консоли 7]()
+3. Файлы-Манифест [role-pod-reader.yaml](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.3/role-pod-reader.yaml) и [rolebinding-developer.yaml](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.3/rolebinding-developer.yaml) созданы и применены.
+    ![Скриншот консоли 6](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.3/images/kuber-homeworks_2.3-3-2.png)
+
+4. Скриншот проверки прав (`kubectl get pods --as=developer`)
+    ![Скриншот консоли 7](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.3/images/kuber-homeworks_2.3-3-3.png)
