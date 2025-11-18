@@ -1,3 +1,4 @@
 # Local .terraform directories and files
 *.key
 *.crt
+*.csr
