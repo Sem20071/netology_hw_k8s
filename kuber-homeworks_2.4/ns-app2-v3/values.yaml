@@ -1,0 +1,17 @@
+name: deployment-myapp-prod
+labels: nginx-v3
+replica_count: 1
+image:
+  name: nginx
+  tag: "1.29.3"
+content_name: web-content-v3
+service:
+  name: service-v3
+  port: 9003
+  targetport: 80
+
+ingress:
+  name: ingress
+  enabled: true
+
+appversion: 1.16.3

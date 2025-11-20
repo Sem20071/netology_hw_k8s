@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+  labels:
+    app: {{ .Values.labels }}
+spec:
+  replicas: {{ .Values.replica_count }}
+  selector:
+    matchLabels:
+      app: {{ .Values.labels }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.labels }}
+    spec:
+      volumes:
+      - name: {{ .Values.content_name }}
+        configMap:
+          name: {{ .Values.content_name }}
+      containers:
+      - name: {{ .Values.image.name }}
+        image: {{ .Values.image.name }}:{{ .Values.image.tag }}
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: {{ .Values.content_name }}
+          mountPath: /usr/share/nginx/html/

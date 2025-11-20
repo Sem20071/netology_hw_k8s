@@ -1,0 +1,17 @@
+name: deployment-myapp-dev
+labels: nginx-v2
+replica_count: 1
+image:
+  name: nginx
+  tag: "1.28.0"
+content_name: web-content-v2
+service:
+  name: service-v2
+  port: 9002
+  targetport: 80
+
+ingress:
+  name: ingress-v2
+  enabled: false
+
+appversion: 1.16.2

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.content_name }}
+  # namespace: default
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title> {{ .Values.labels }} </title>
+    </head>
+    <body>
+      <h1>Nginx version {{ .Values.image.tag }}</h1>
+    </body>
+    </html>
+    

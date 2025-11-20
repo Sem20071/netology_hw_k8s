@@ -1,0 +1,16 @@
+name: deployment-myapp
+labels: nginx
+replica_count: 1
+image:
+  name: nginx
+  tag: "1.21.1"
+ns: default
+
+service:
+  name: service
+  port: 9001
+  targetport: 80
+
+ingress:
+  name: ingress
+  enabled: false
