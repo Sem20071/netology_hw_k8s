@@ -24,8 +24,8 @@
 
 ## Ответ:
 1. Чарт подготовлен. Запущено несколько версий приложений:
-    ![Скриншот консоли 1]()
+    ![Скриншот консоли 1](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.4/images/kuber-homeworks_2.4-1-1.png)
 2. Первая версия в namespace=app1, вторая версия в namespace=app1 и третья версия в namespace=app2:
-    ![Скриншот консоли 2]()
+    ![Скриншот консоли 2](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.4/images/kuber-homeworks_2.4-1-2.png)
 3. Демонстрация результата:
-    ![Скриншот консоли 3]()
+    ![Скриншот консоли 3](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.4/images/kuber-homeworks_2.4-1-3.png)
