@@ -7,15 +7,15 @@
 
 ## Ответ:
 Приожение упаковано в чарт для деплоя в разные окружения. Созданы Файл-манифесты:
-1. [configmap.yaml]()
-2. [deployment.yaml]()
-3. [ingress.yaml]()
-4. [service.yaml]()
+1. [configmap.yaml](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.4/netology-chart/templates/configmap.yaml)
+2. [deployment.yaml](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.4/netology-chart/templates/deployment.yaml)
+3. [ingress.yaml](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.4/netology-chart/templates/ingress.yaml)
+4. [service.yaml](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.4/netology-chart/templates/service.yaml)
 
 Так же были созданы 3 файла с переменными для разных окружений:
-1. [ns-app1-v2]()
-2. [ns-app1-v2]()
-3. [ns-app2-v3]()
+1. [ns-app1-v1](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.4/ns-app1-v1/values.yaml)
+2. [ns-app1-v2](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.4/ns-app1-v2/values.yaml)
+3. [ns-app2-v3](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_2.4/ns-app2-v3/values.yaml)
 
 ## Задание 2. Запустить две версии в разных неймспейсах
 1. Подготовив чарт, необходимо его проверить. Запуститe несколько копий приложения.
