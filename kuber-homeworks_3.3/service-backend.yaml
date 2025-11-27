@@ -1,0 +1,40 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-backend
+spec:
+  selector:
+    app: backend
+  ports:
+    - name: multitool
+      protocol: TCP
+      port: 9090
+      targetPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-frontend
+spec:
+  selector:
+    app: frontend
+  ports:
+    - name: multitool
+      protocol: TCP
+      port: 9191
+      targetPort: 8181
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-cache
+spec:
+  selector:
+    app: cache
+  ports:
+    - name: multitool
+      protocol: TCP
+      port: 9292
+      targetPort: 8282

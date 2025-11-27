@@ -1,0 +1,76 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-backend
+  labels:
+    app: deployment-backend
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: multitool-backend
+        image: wbitt/network-multitool
+        ports:
+        - containerPort: 8080
+        env:
+        - name: HTTP_PORT
+          value: "8080"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-frontend
+  labels:
+    app: deployment-frontend
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: multitool-frontend
+        image: wbitt/network-multitool
+        ports:
+        - containerPort: 8181
+        env:
+        - name: HTTP_PORT
+          value: "8181"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-cache
+  labels:
+    app: deployment-cache
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: cache
+  template:
+    metadata:
+      labels:
+        app: cache
+    spec:
+      containers:
+      - name: multitool-cache
+        image: wbitt/network-multitool
+        ports:
+        - containerPort: 8282
+        env:
+        - name: HTTP_PORT
+          value: "8282"
