@@ -21,7 +21,7 @@
 4. Создана [запрещающая](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_3.3/np-deny.yaml) и [разрешающая](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_3.3/np-allow.yaml) политики.
 
 5. Демонстрация,что трафик разрешён и запрещён
-    - До создания запрещабщей политики трафик разрешен, после - запрещен.
+    - До создания запрещающей политики трафик разрешен, после - запрещен.
     ![Скриншот консоли 4](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_3.3/images/kuber-homeworks_3.3-1-3.png)
     - до создания разрешающей политики трафик запрещён после - разрешен (backend -> cache)
     ![Скриншот консоли 5](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_3.3/images/kuber-homeworks_3.3-1-4.png)
