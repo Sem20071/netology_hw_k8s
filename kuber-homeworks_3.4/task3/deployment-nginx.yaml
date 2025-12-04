@@ -1,0 +1,93 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-app-01
+  labels:
+    app: nginx-app-01
+spec:
+  replicas: 2
+  # strategy:
+  #   type: RollingUpdate
+  #   rollingUpdate:
+  #     maxSurge: 2
+  #     maxUnavailable: 2
+  selector: 
+    matchLabels:
+      app: nginx-01
+  template:
+    metadata:
+      labels:
+        app: nginx-01
+    spec:
+      volumes:
+      - name: nginx-web-content
+        configMap:
+          name: web-content-v1
+      containers:
+      - name: nginx
+        image: nginx:1.20
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: nginx-web-content # ПОДКЛЮЧЕНИЕ ConfigMap
+          mountPath: /usr/share/nginx/html/
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 4
+          periodSeconds: 4
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 10
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-app-02
+  labels:
+    app: nginx-app-02
+spec:
+  replicas: 2
+  # strategy:
+  #   type: RollingUpdate
+  #   rollingUpdate:
+  #     maxSurge: 2
+  #     maxUnavailable: 2
+  selector: 
+    matchLabels:
+      app: nginx-02
+  template:
+    metadata:
+      labels:
+        app: nginx-02
+    spec:
+      volumes:
+      - name: nginx-web-content
+        configMap:
+          name: web-content-v2
+      containers:
+      - name: nginx
+        image: nginx:1.21
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: nginx-web-content # ПОДКЛЮЧЕНИЕ ConfigMap
+          mountPath: /usr/share/nginx/html/
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 4
+          periodSeconds: 4
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 10

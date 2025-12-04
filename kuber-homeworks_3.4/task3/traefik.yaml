@@ -1,0 +1,17 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: nginx-weighted
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: PathPrefix(`/`)
+    kind: Rule
+    services:
+    - name: service-nginx-v1
+      port: 9090
+      weight: 80
+    - name: service-nginx-v2
+      port: 9191
+      weight: 20
