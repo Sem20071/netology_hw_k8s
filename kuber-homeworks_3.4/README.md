@@ -63,7 +63,7 @@ microk8s kubectl get pods -n traefik
 microk8s kubectl get svc -n traefik
 ```
 
-4. Дуплоим наши [traefik.yaml](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_3.4/task3/traefik.yaml) и [ingress.yaml](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_3.4/task3/ingress.yaml)
+4. Деплоим наши [traefik.yaml](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_3.4/task3/traefik.yaml) и [ingress.yaml](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_3.4/task3/ingress.yaml)
 
 5. Проверяем на каком порту работает traefik 
 `microk8s kubectl get svc -n traefik`
