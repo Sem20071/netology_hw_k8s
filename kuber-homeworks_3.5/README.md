@@ -9,13 +9,13 @@
 
 ## Ответ:
 
-[Скриншот экрана 0]()
+[Скриншот экрана 0](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_3.5/images/kuber-homeworks_3.5-1-1.png)
 
 Проблема заключается в том, что внутри пода web-consumer не резолвится имя auth-db, к которому идёт обращение. Предлагаю следующие варианты решения данной проблемы:
 1. Размещение подов в одном namespace.
-    [Скриншот экрана 1]()
-    [Скриншот экрана 2]()
+    [Скриншот экрана 1](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_3.5/images/kuber-homeworks_3.5-1-3.png)
+    [Скриншот экрана 2](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_3.5/images/kuber-homeworks_3.5-1-2.png)
 
 2. Правельно обращаться к требуемому ресурсу (сервису) - по полному имени `auth-db.data.svc.cluster.local`
-    [Скриншот экрана 3]()
-    [Скриншот экрана 4]()
+    [Скриншот экрана 3](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_3.5/images/kuber-homeworks_3.5-1-5.png)
+    [Скриншот экрана 4](https://github.com/Sem20071/netology_hw_k8s/blob/main/kuber-homeworks_3.5/images/kuber-homeworks_3.5-1-4.png)
